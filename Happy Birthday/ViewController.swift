@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MessageUI
 
 class ViewController: UIViewController {
 
     var tableView: UITableView!
+    let messageComposer = MessageComposer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,7 @@ class ViewController: UIViewController {
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.blue
+        tableView.backgroundColor = UIColor.hbBlue
         tableView.register(HappyBirthdayTableViewCell.self, forCellReuseIdentifier: "Cell")
         view.addSubview(tableView)
         
@@ -44,6 +46,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // This function needs to return an Int specifying how many rows to show
         return happyBirthdayList.count
@@ -59,14 +63,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.borderColor = UIColor.black.cgColor
         
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-//            cell.backgroundColor = UIColor.blue.withAlphaComponent(0.3)
-        } else {
             cell.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
+        } else {
+            cell.backgroundColor = UIColor.hbBlue
         }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let birthdayPhrase = happyBirthdayList[indexPath.row]["phrase"]
+        
+        if messageComposer.canSendText() {
+            let messageComposeVC = messageComposer.configuredMessageComposeViewController()
+            messageComposeVC.body = birthdayPhrase
+            present(messageComposeVC, animated: true, completion: nil)
+        } else {
+            print("unable to send text messages")
+        }
+        
+//        let selectedCell = tableView.cellForRow(at: indexPath) as! HappyBirthdayTableViewCell
+//        selectedCell.backgroundColor = UIColor.blue
+//        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        
+        
+    }
     
 }

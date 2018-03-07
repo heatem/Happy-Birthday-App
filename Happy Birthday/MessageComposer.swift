@@ -7,7 +7,21 @@
 //
 
 import UIKit
+import MessageUI
 
-class MessageComposer: NSObject {
-
+class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
+    
+    func canSendText() -> Bool {
+        return MFMessageComposeViewController.canSendText()
+    }
+    
+    func configuredMessageComposeViewController() -> MFMessageComposeViewController {
+        let messageComposeVC = MFMessageComposeViewController()
+        messageComposeVC.messageComposeDelegate = self
+        return messageComposeVC
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

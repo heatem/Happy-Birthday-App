@@ -27,5 +27,26 @@ var happyBirthdayList = [
     ],[
         "phrase":"お誕生日おめでとうございます",
         "language":"Japanese"
+    ],[
+        "phrase":"Chúc mừng sinh nhật!",
+        "language":"Vietnamese"
+    ],[
+        "phrase":"생일 축하해!",
+        "language":"Korean"
+    ],[
+        "phrase":"Selamat ulang tahun!",
+        "language":"Indonesian"
+    ],[
+        "phrase":"سالگرہ مبارک",
+        "language":"Urdu"
+    ],[
+        "phrase":"Wilujeung tepang taun!",
+        "language":"Sudanese"
+    ],[
+        "phrase":"Fijne verjaardag!",
+        "language":"Dutch"
+    ],[
+        "phrase":"Bon anniversaire!",
+        "language":"French"
     ]
 ]

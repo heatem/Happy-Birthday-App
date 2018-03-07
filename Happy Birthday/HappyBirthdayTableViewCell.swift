@@ -19,7 +19,7 @@ class HappyBirthdayTableViewCell: UITableViewCell {
     let languageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
-        label.textColor = UIColor.gray
+        label.textColor = UIColor.white
         return label
     }()
     
