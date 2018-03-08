@@ -31,17 +31,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -49,20 +38,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // This function needs to return an Int specifying how many rows to show
         return happyBirthdayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HappyBirthdayTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HappyBirthdayTableViewCell
         
-//        let phrase = happyBirthdayList[indexPath.row]["phrase"]
         cell.phraseLabel.text = happyBirthdayList[indexPath.row]["phrase"]
         cell.languageLabel.text = happyBirthdayList[indexPath.row]["language"]
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.black.cgColor
-        
-//        cell.sendWishButton.addTarget(self, action: #selector(sendWish(button:)), for: .touchUpInside)
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
@@ -72,17 +57,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    
-//    @objc func sendWish(button: UIButton) {
-//        if messageComposer.canSendText() {
-//            let messageComposeVC = messageComposer.configuredMessageComposeViewController()
-//            messageComposeVC.body = birthdayPhrase
-//            present(messageComposeVC, animated: true, completion: nil)
-//        } else {
-//            print(String(describing: birthdayPhrase))
-//            print("unable to send text messages")
-//        }
-//    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

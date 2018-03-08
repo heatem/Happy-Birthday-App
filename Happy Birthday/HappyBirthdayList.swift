@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Translations from translate.google.com
 var happyBirthdayList = [
     [
         "phrase":"Happy Birthday!",
@@ -48,5 +49,8 @@ var happyBirthdayList = [
     ],[
         "phrase":"Bon anniversaire!",
         "language":"French"
+    ],[
+        "phrase":"生日快乐",
+        "language":"Chinese (Simplified)"
     ]
 ]
