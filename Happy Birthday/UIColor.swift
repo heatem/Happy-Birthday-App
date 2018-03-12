@@ -36,6 +36,6 @@ public extension UIColor {
 
 public extension UIColor {
     public class var gray: UIColor { return UIColor.hex(value: 0xAAAAAA) }
-    public class var hbBlue: UIColor { return UIColor.hex(value: 0x91BEF7) }
+    public class var hbLightBlue: UIColor { return UIColor.hex(value: 0xC7DDF9) }
 }
 
